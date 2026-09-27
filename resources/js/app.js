@@ -1,181 +1,102 @@
-const root = document.documentElement;
-root.classList.add('js-reveal');
-
-const onReady = (callback) => {
+const ready = (callback) => {
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', callback, { once: true });
-        return;
+    } else {
+        callback();
     }
-
-    callback();
 };
 
-onReady(() => {
+ready(() => {
+    const root = document.documentElement;
     const header = document.querySelector('[data-site-header]');
-    const navigation = document.querySelector('[data-main-nav]');
+    const menu = document.querySelector('[data-main-nav]');
     const menuToggle = document.querySelector('[data-menu-toggle]');
     const themeToggle = document.querySelector('[data-theme-toggle]');
-    const menuOpenIcon = menuToggle?.querySelector('.menu-icon-open');
-    const menuCloseIcon = menuToggle?.querySelector('.menu-icon-close');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const setMenuOpen = (open) => {
-        if (!navigation || !menuToggle) return;
-
-        navigation.classList.toggle('is-open', open);
-        document.body.classList.toggle('menu-open', open);
-        menuToggle.setAttribute('aria-expanded', String(open));
-        menuToggle.setAttribute('aria-label', open ? 'بستن فهرست' : 'باز کردن فهرست');
-
-        if (menuOpenIcon) menuOpenIcon.hidden = open;
-        if (menuCloseIcon) menuCloseIcon.hidden = !open;
+    const closeMenu = () => {
+        menu?.classList.remove('is-open');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+        menuToggle?.setAttribute('aria-label', 'باز کردن فهرست');
+        if (menuToggle) {
+            menuToggle.querySelector('.menu-icon-open').hidden = false;
+            menuToggle.querySelector('.menu-icon-close').hidden = true;
+        }
     };
 
-    const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
+    menuToggle?.addEventListener('click', () => {
+        const open = menuToggle.getAttribute('aria-expanded') !== 'true';
+        menu.classList.toggle('is-open', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'بستن فهرست' : 'باز کردن فهرست');
+        menuToggle.querySelector('.menu-icon-open').hidden = open;
+        menuToggle.querySelector('.menu-icon-close').hidden = !open;
+    });
+    menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => { if (window.innerWidth > 850) closeMenu(); }, { passive: true });
+
+    const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 16);
     updateHeader();
     window.addEventListener('scroll', updateHeader, { passive: true });
 
-    menuToggle?.addEventListener('click', () => {
-        setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
+    const syncThemeLabel = () => themeToggle?.setAttribute('aria-label', root.dataset.theme === 'dark' ? 'استفاده از حالت روشن' : 'استفاده از حالت تیره');
+    syncThemeLabel();
+    themeToggle?.addEventListener('click', () => {
+        const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+        try { localStorage.setItem('buildino-theme', theme); } catch { /* Optional preference. */ }
+        syncThemeLabel();
     });
 
-    navigation?.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => setMenuOpen(false));
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') setMenuOpen(false);
-    });
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 900) setMenuOpen(false);
-    }, { passive: true });
-
-    const sectionIds = ['overview', 'capabilities', 'services', 'showcase', 'how', 'faq'];
-    if ('IntersectionObserver' in window) {
-        const navigationObserver = new IntersectionObserver((entries) => {
-            for (const entry of entries) {
-                if (!entry.isIntersecting) continue;
-
-                navigation?.querySelectorAll('a').forEach((link) => {
-                    const active = link.getAttribute('href') === `#${entry.target.id}`;
-                    link.classList.toggle('active', active);
-                    if (active) link.setAttribute('aria-current', 'location');
-                    else link.removeAttribute('aria-current');
-                });
-            }
-        }, { rootMargin: '-25% 0px -65%' });
-
-        sectionIds.forEach((id) => {
-            const section = document.getElementById(id);
-            if (section) navigationObserver.observe(section);
-        });
-    }
-
-    const revealElements = document.querySelectorAll('.reveal');
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-        revealElements.forEach((element) => element.classList.add('is-visible'));
-    } else {
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            for (const entry of entries) {
-                if (!entry.isIntersecting) continue;
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        }, { threshold: 0.12 });
-
-        revealElements.forEach((element) => revealObserver.observe(element));
-    }
-
-    const syncThemeButton = () => {
-        if (!themeToggle) return;
-        themeToggle.setAttribute(
-            'aria-label',
-            root.dataset.theme === 'dark' ? 'استفاده از حالت روشن' : 'استفاده از حالت تیره',
-        );
-    };
-    syncThemeButton();
-
-    themeToggle?.addEventListener('click', (event) => {
-        const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-        const applyTheme = () => {
-            root.dataset.theme = nextTheme;
-            root.style.colorScheme = nextTheme;
-
-            try {
-                localStorage.setItem('buildino-theme', nextTheme);
-            } catch {
-                // Theme persistence is optional when browser storage is unavailable.
-            }
-
-            syncThemeButton();
-        };
-
-        if (!document.startViewTransition || reduceMotion) {
-            applyTheme();
+    document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+        const slides = [...carousel.querySelectorAll('[data-slide]')];
+        const dots = [...carousel.querySelectorAll('[data-slide-dot]')];
+        const previous = carousel.querySelector('[data-slide-prev]');
+        const next = carousel.querySelector('[data-slide-next]');
+        if (slides.length < 2) {
+            previous?.setAttribute('hidden', '');
+            next?.setAttribute('hidden', '');
             return;
         }
 
-        const bounds = event.currentTarget.getBoundingClientRect();
-        const originX = bounds.left + bounds.width / 2;
-        const originY = bounds.top + bounds.height / 2;
-        const farthestX = Math.max(originX, window.innerWidth - originX);
-        const farthestY = Math.max(originY, window.innerHeight - originY);
-        const radius = Math.ceil(Math.hypot(farthestX, farthestY) * 1.04);
-
-        root.style.setProperty('--theme-origin-x', `${originX}px`);
-        root.style.setProperty('--theme-origin-y', `${originY}px`);
-        root.style.setProperty('--theme-wipe-radius', `${radius}px`);
-        root.classList.add('theme-transitioning');
-
-        const cleanup = () => {
-            root.classList.remove('theme-transitioning');
-            root.style.removeProperty('--theme-origin-x');
-            root.style.removeProperty('--theme-origin-y');
-            root.style.removeProperty('--theme-wipe-radius');
+        let index = 0;
+        const show = (target) => {
+            index = (target + slides.length) % slides.length;
+            slides.forEach((slide, slideIndex) => { slide.hidden = slideIndex !== index; });
+            dots.forEach((dot, dotIndex) => {
+                if (dotIndex === index) dot.setAttribute('aria-current', 'true');
+                else dot.removeAttribute('aria-current');
+            });
         };
+        previous?.addEventListener('click', () => show(index - 1));
+        next?.addEventListener('click', () => show(index + 1));
+        dots.forEach((dot, dotIndex) => dot.addEventListener('click', () => show(dotIndex)));
 
-        const transition = document.startViewTransition(applyTheme);
-        transition.finished.finally(cleanup);
-        window.setTimeout(cleanup, 900);
+        if (carousel.dataset.autoplay === 'true' && !reduceMotion) {
+            window.setInterval(() => {
+                if (!document.hidden && !carousel.matches(':hover') && !carousel.contains(document.activeElement)) show(index + 1);
+            }, 7000);
+        }
     });
 
-    const liquidCursor = document.querySelector('.liquid-cursor');
-    if (!liquidCursor || reduceMotion || !window.matchMedia('(pointer: fine)').matches) return;
-
-    let targetX = -80;
-    let targetY = -80;
-    let currentX = targetX;
-    let currentY = targetY;
-    let frame = 0;
-
-    const renderCursor = () => {
-        currentX += (targetX - currentX) * 0.24;
-        currentY += (targetY - currentY) * 0.24;
-        liquidCursor.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
-        frame = window.requestAnimationFrame(renderCursor);
+    const contactFloat = document.querySelector('[data-contact-float]');
+    const contactToggle = document.querySelector('[data-contact-toggle]');
+    const contactMenu = document.getElementById('quick-contact-menu');
+    const closeContact = () => {
+        if (contactMenu) contactMenu.hidden = true;
+        contactToggle?.setAttribute('aria-expanded', 'false');
     };
-
-    document.documentElement.classList.add('has-liquid-cursor');
-
-    window.addEventListener('pointermove', (event) => {
-        targetX = event.clientX;
-        targetY = event.clientY;
-        liquidCursor.classList.add('is-visible');
-    }, { passive: true });
-
-    document.addEventListener('pointerover', (event) => {
-        const target = event.target instanceof Element ? event.target : null;
-        liquidCursor.classList.toggle(
-            'is-active',
-            Boolean(target?.closest('a, button, summary, input, select, textarea, [role="button"]')),
-        );
-    }, { passive: true });
-
-    document.documentElement.addEventListener('mouseleave', () => {
-        liquidCursor.classList.remove('is-visible');
+    contactToggle?.addEventListener('click', () => {
+        const open = contactToggle.getAttribute('aria-expanded') !== 'true';
+        contactMenu.hidden = !open;
+        contactToggle.setAttribute('aria-expanded', String(open));
     });
-
-    frame = window.requestAnimationFrame(renderCursor);
-    window.addEventListener('pagehide', () => window.cancelAnimationFrame(frame), { once: true });
+    contactFloat?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeContact));
+    document.addEventListener('click', (event) => {
+        if (contactFloat && !contactFloat.contains(event.target)) closeContact();
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') { closeMenu(); closeContact(); }
+    });
 });

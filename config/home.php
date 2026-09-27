@@ -1,0 +1,86 @@
+<?php
+
+return [
+    'slides' => [
+        [
+            'eyebrow' => 'یک پلتفرم برای همه نقش‌ها',
+            'title' => 'مدیریت ساختمان، ساده‌تر برای همه.',
+            'description' => 'بیلدینو کارهای روزمره مجتمع را برای مدیر، مالک و ساکن در یک مسیر روشن جمع می‌کند.',
+            'image' => 'images/buildings.webp',
+            'image_alt' => 'تصویر مفهومی ساختمان‌های متصل در بیلدینو',
+            'target' => '#features',
+            'cta' => 'امکانات را ببینید',
+        ],
+        [
+            'eyebrow' => 'شفافیت در امور مالی',
+            'title' => 'از شارژ ساختمان تا گزارش مالی، منظم و قابل پیگیری.',
+            'description' => 'صورتحساب‌ها، سررسیدها و وضعیت پرداخت را در نمایی یکپارچه دنبال کنید.',
+            'image' => 'images/building-with-shadow.webp',
+            'image_alt' => 'تصویر مفهومی ساختمان در محیط دیجیتال',
+            'target' => '#features',
+            'cta' => 'امکانات مالی',
+        ],
+        [
+            'eyebrow' => 'خدمات نزدیک به شما',
+            'title' => 'درخواست خدمات ساختمان، بدون پیگیری‌های پراکنده.',
+            'description' => 'از تعمیرات و رزرو فضا تا ارتباط با مدیریت، هر درخواست یک مسیر مشخص دارد.',
+            'image' => 'images/buildings.webp',
+            'image_alt' => 'تصویر مفهومی خدمات مجتمع در بیلدینو',
+            'target' => '#services',
+            'cta' => 'خدمات را بشناسید',
+        ],
+    ],
+    'features' => [
+        ['icon' => 'building', 'title' => 'مدیریت مجتمع و واحدها', 'description' => 'اطلاعات ساختمان، بلوک و واحد در یک نمای مرتب.', 'target' => '#services'],
+        ['icon' => 'wallet', 'title' => 'شارژ و امور مالی', 'description' => 'صورتحساب، سررسید و سابقه پرداخت در دسترس.', 'target' => '#services'],
+        ['icon' => 'calendar', 'title' => 'رزرو فضاهای مشترک', 'description' => 'مشاهده زمان‌های آزاد و ثبت درخواست رزرو.', 'target' => '#services'],
+        ['icon' => 'unit', 'title' => 'تردد و مهمان', 'description' => 'هماهنگی ورود مهمان و امور مرتبط با نگهبانی.', 'target' => '#services'],
+        ['icon' => 'bell', 'title' => 'اطلاع‌رسانی', 'description' => 'پیام‌های مدیریت و وضعیت درخواست‌ها در یک جا.', 'target' => '#services'],
+        ['icon' => 'tool', 'title' => 'درخواست خدمات', 'description' => 'ثبت و پیگیری تعمیرات و خدمات ساختمان.', 'target' => '#services'],
+    ],
+    'services' => [
+        ['icon' => 'building', 'title' => 'مدیریت ساختمان', 'description' => 'نظم در امور واحدها، نقش‌ها و فعالیت‌های مجتمع.', 'status' => 'راهکار اصلی'],
+        ['icon' => 'unit', 'title' => 'تردد و امنیت', 'description' => 'هماهنگی مهمان و ارتباط بهتر با نگهبانی.', 'status' => 'راهکار اصلی'],
+        ['icon' => 'wallet', 'title' => 'پرداخت و امور مالی', 'description' => 'مدیریت شارژ، صورتحساب و گزارش‌های مالی.', 'status' => 'راهکار اصلی'],
+        ['icon' => 'calendar', 'title' => 'رزرو فضاها', 'description' => 'درخواست استفاده از امکانات مشترک ساختمان.', 'status' => 'راهکار اصلی'],
+        ['icon' => 'bell', 'title' => 'ارتباط و اطلاع‌رسانی', 'description' => 'اعلان‌ها، پیام‌ها و پیگیری درخواست‌ها.', 'status' => 'راهکار اصلی'],
+        ['icon' => 'tool', 'title' => 'بازارچه خدمات ساختمان', 'description' => 'دسترسی برنامه‌ریزی‌شده به خدمات موردنیاز مجتمع.', 'status' => 'در برنامه توسعه'],
+        ['icon' => 'activity', 'title' => 'خدمات خودرو در محل', 'description' => 'راهکاری برای درخواست خدمات خودرو در مجتمع.', 'status' => 'در برنامه توسعه'],
+        ['icon' => 'wallet', 'title' => 'پرداخت اعتباری', 'description' => 'مسیر توسعه برای پرداخت‌های منعطف‌تر.', 'status' => 'در برنامه توسعه'],
+        ['icon' => 'check', 'title' => 'بیمه و خدمات مکمل', 'description' => 'دسترسی به خدمات بیمه و امکانات تکمیلی.', 'status' => 'در برنامه توسعه'],
+    ],
+    // Sample content for the visual preview. Replace before publishing real claims.
+    'projects' => [
+        ['name' => 'مجتمع نمونه آفتاب', 'status' => 'پروژه نمایشی', 'description' => 'نمونه‌ای از معرفی تصویری مجتمع‌های همکار در آینده.', 'image' => 'images/buildings.webp', 'image_alt' => 'تصویر مفهومی مجتمع نمونه آفتاب'],
+        ['name' => 'برج نمونه نارون', 'status' => 'پروژه نمایشی', 'description' => 'جایگاهی برای نمایش ساختمان، وضعیت راه‌اندازی و خدمات فعال.', 'image' => 'images/building-with-shadow.webp', 'image_alt' => 'تصویر مفهومی برج نمونه نارون'],
+        ['name' => 'ساختمان نمونه سرو', 'status' => 'پروژه نمایشی', 'description' => 'این اسلاید بعداً با تصویر و اطلاعات پروژه واقعی جایگزین می‌شود.', 'image' => 'images/buildings.webp', 'image_alt' => 'تصویر مفهومی ساختمان نمونه سرو'],
+    ],
+    'statistics' => [
+        ['label' => 'مجتمع‌ها', 'value' => '۱۲'],
+        ['label' => 'واحدهای تحت مدیریت', 'value' => '۱٬۲۰۰'],
+        ['label' => 'کاربران', 'value' => '۳٬۸۰۰'],
+        ['label' => 'خدمات ثبت‌شده', 'value' => '۲۴۰'],
+    ],
+    'articles' => [
+        ['category' => 'مقاله نمایشی', 'title' => 'چطور مدیریت ساختمان را منظم‌تر کنیم؟', 'excerpt' => 'عنوان و چکیده نمونه برای پیش‌نمایش طراحی بخش مقالات.', 'image' => 'images/buildings.webp', 'image_alt' => 'تصویر مفهومی ساختمان'],
+        ['category' => 'راهنمای نمایشی', 'title' => 'شفافیت مالی در مجتمع از کجا شروع می‌شود؟', 'excerpt' => 'پس از انتشار مقاله واقعی، این کارت به مطلب متصل می‌شود.', 'image' => 'images/building-with-shadow.webp', 'image_alt' => 'تصویر مفهومی مجتمع'],
+        ['category' => 'خبر نمایشی', 'title' => 'خدمات دیجیتال چه کمکی به ساکنان می‌کند؟', 'excerpt' => 'این محتوا برای نمایش قالب کارت خبر و مقاله است.', 'image' => 'images/buildings.webp', 'image_alt' => 'تصویر مفهومی خدمات ساختمان'],
+    ],
+    'plans' => [
+        ['name' => 'ساختمان', 'subtitle' => 'برای مدیریت منظم یک ساختمان', 'items' => ['مدیریت واحدها و نقش‌ها', 'شارژ و صورتحساب', 'اطلاع‌رسانی و درخواست‌ها']],
+        ['name' => 'مجتمع', 'subtitle' => 'برای مجموعه‌های چندبخشی', 'items' => ['امکانات پلن ساختمان', 'رزرو فضاهای مشترک', 'فرایندهای متناسب با مجتمع']],
+        ['name' => 'سازمانی', 'subtitle' => 'برای برج‌ها و مجموعه‌های بزرگ', 'items' => ['ساختار چندبلوکی', 'سطوح دسترسی متنوع', 'بررسی نیازها و راهکار اختصاصی']],
+    ],
+    'contact' => [
+        'phone' => env('BUILDINO_CONTACT_PHONE', '۰۲۱-۰۰۰۰ ۰۰۰۰'),
+        'email' => env('BUILDINO_CONTACT_EMAIL', 'hello@example.com'),
+        'address' => env('BUILDINO_CONTACT_ADDRESS', 'تهران، آدرس نمونه برای پیش‌نمایش'),
+        'recipient' => env('BUILDINO_CONTACT_EMAIL', ''),
+        'phone_is_demo' => blank(env('BUILDINO_CONTACT_PHONE')),
+        'email_is_demo' => blank(env('BUILDINO_CONTACT_EMAIL')),
+        'address_is_demo' => blank(env('BUILDINO_CONTACT_ADDRESS')),
+        'whatsapp' => env('BUILDINO_WHATSAPP_NUMBER', ''),
+        'instagram' => env('BUILDINO_INSTAGRAM_URL', ''),
+        'linkedin' => env('BUILDINO_LINKEDIN_URL', ''),
+    ],
+];

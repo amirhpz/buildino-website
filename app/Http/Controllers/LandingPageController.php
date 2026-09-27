@@ -8,6 +8,6 @@ final class LandingPageController extends Controller
 {
     public function __invoke(): View
     {
-        return view('app');
+        return view('home');
     }
 }
