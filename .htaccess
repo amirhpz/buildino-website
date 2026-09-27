@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    Options -Indexes
+    ServerSignature Off
+
+    RewriteRule ^(?:app|bootstrap|config|database|db|resources|routes|tests|vendor)(?:/|$) - [R=404,L,NC]
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+<FilesMatch "(^\.|^(?:artisan|composer\.(?:json|lock)|package(?:-lock)?\.json|phpunit\.xml|vite\.config\.js|vendor\.zip)$|\.(?:env|ini|log|sql|bak|dist)$)">
+    Require all denied
+</FilesMatch>
