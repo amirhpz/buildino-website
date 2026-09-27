@@ -7,7 +7,7 @@
 - PHP 8.2 یا بالاتر (PHP 8.3/8.4 نیز مناسب است)
 - اکستنشن‌های استاندارد Laravel، از جمله `mbstring`, `openssl`, `pdo`, `tokenizer`, `xml/dom`, `ctype`, `fileinfo`
 - Composer 2.x فقط برای نصب/به‌روزرسانی Dependencyها
-- Node.js فقط در صورت نیاز به Build مجدد Assetها؛ نسخه Deploy شامل `public/build` آماده است
+- Node.js برای ساخت Assetها لازم است؛ خروجی `public/build` همراه سورس در Git نگهداری می‌شود تا استقرار بدون دسترسی CLI روی هاست ممکن باشد
 - دیتابیس برای وب‌سایت عمومی فعلی لازم نیست
 
 ## نصب
@@ -52,7 +52,7 @@ npm ci
 npm run build
 ```
 
-فایل‌های `public/build` در بسته نهایی از قبل آماده شده‌اند.
+پس از تغییر CSS یا JavaScript، خروجی `public/build` را هم همراه تغییرات commit کنید. سرور برای نمایش سایت به Node.js یا اجرای build نیاز ندارد؛ فایل `public/build/manifest.json` و پوشه `public/build/assets` باید در انتشار وجود داشته باشند.
 
 ## تست
 
