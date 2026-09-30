@@ -41,12 +41,46 @@ ready(() => {
 
     const syncThemeLabel = () => themeToggle?.setAttribute('aria-label', root.dataset.theme === 'dark' ? 'استفاده از حالت روشن' : 'استفاده از حالت تیره');
     syncThemeLabel();
-    themeToggle?.addEventListener('click', () => {
+    let themeTransitionRunning = false;
+    themeToggle?.addEventListener('click', (event) => {
+        if (themeTransitionRunning) return;
         const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-        root.dataset.theme = theme;
-        root.style.colorScheme = theme;
-        try { localStorage.setItem('buildino-theme', theme); } catch { /* Optional preference. */ }
-        syncThemeLabel();
+        const applyTheme = () => {
+            root.dataset.theme = theme;
+            root.style.colorScheme = theme;
+            try { localStorage.setItem('buildino-theme', theme); } catch { /* Optional preference. */ }
+            syncThemeLabel();
+        };
+
+        if (!document.startViewTransition || reduceMotion) {
+            applyTheme();
+            return;
+        }
+
+        const bounds = event.currentTarget.getBoundingClientRect();
+        const originX = bounds.left + bounds.width / 2;
+        const originY = bounds.top + bounds.height / 2;
+        const farthestX = Math.max(originX, window.innerWidth - originX);
+        const farthestY = Math.max(originY, window.innerHeight - originY);
+        const radius = Math.ceil(Math.hypot(farthestX, farthestY) * 1.04);
+
+        root.style.setProperty('--theme-origin-x', `${originX}px`);
+        root.style.setProperty('--theme-origin-y', `${originY}px`);
+        root.style.setProperty('--theme-wipe-radius', `${radius}px`);
+        root.classList.add('theme-transitioning');
+        themeTransitionRunning = true;
+
+        const cleanup = () => {
+            root.classList.remove('theme-transitioning');
+            root.style.removeProperty('--theme-origin-x');
+            root.style.removeProperty('--theme-origin-y');
+            root.style.removeProperty('--theme-wipe-radius');
+            themeTransitionRunning = false;
+        };
+
+        const transition = document.startViewTransition(applyTheme);
+        transition.finished.then(cleanup, cleanup);
+        window.setTimeout(cleanup, 900);
     });
 
     document.querySelectorAll('[data-carousel]').forEach((carousel) => {

@@ -62,6 +62,7 @@
     <main id="main">
         <section class="hero" id="top" aria-label="معرفی بیلدینو">
             <div class="container hero-shell" data-carousel data-autoplay="true">
+                <div class="hero-border-orbits" aria-hidden="true"><i></i><i></i><i></i></div>
                 <div class="hero-slides" aria-live="off">
                     @foreach (config('home.slides') as $slide)
                         <article class="hero-slide" data-slide @if (!$loop->first) hidden @endif>
@@ -258,7 +259,7 @@
         </section>
     </main>
 
-    <footer class="site-footer"><div class="container footer-main"><div><x-logo /><p>راهکاری برای مدیریت ساده‌تر ساختمان و ارتباط بهتر مدیر، مالک و ساکن.</p></div><nav aria-label="پیوندهای پایین صفحه"><a href="#features">امکانات</a><a href="#services">خدمات</a><a href="#pricing">تعرفه‌ها</a><a href="#contact">تماس</a></nav></div><div class="container footer-bottom"><span>© {{ date('Y') }} بیلدینو. تمامی حقوق محفوظ است.</span><a href="#top">بازگشت به بالا ↑</a></div></footer>
+    <footer class="site-footer"><img class="footer-skyline" src="{{ asset('images/milad-tower.webp') }}" width="1672" height="941" loading="lazy" decoding="async" alt="" aria-hidden="true"><div class="container footer-main"><div><x-logo /><p>راهکاری برای مدیریت ساده‌تر ساختمان و ارتباط بهتر مدیر، مالک و ساکن.</p></div><nav aria-label="پیوندهای پایین صفحه"><a href="#features">امکانات</a><a href="#services">خدمات</a><a href="#pricing">تعرفه‌ها</a><a href="#contact">تماس</a></nav></div><div class="container footer-bottom"><span>© {{ date('Y') }} بیلدینو. تمامی حقوق محفوظ است.</span><a href="#top">بازگشت به بالا ↑</a></div></footer>
 
     @include('partials.contact-float')
 </body>
