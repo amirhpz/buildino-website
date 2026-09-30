@@ -61,8 +61,8 @@
 
     <main id="main">
         <section class="hero" id="top" aria-label="معرفی بیلدینو">
+            <div class="hero-border-orbits" aria-hidden="true"><i></i><i></i><i></i></div>
             <div class="container hero-shell" data-carousel data-autoplay="true">
-                <div class="hero-border-orbits" aria-hidden="true"><i></i><i></i><i></i></div>
                 <div class="hero-slides" aria-live="off">
                     @foreach (config('home.slides') as $slide)
                         <article class="hero-slide @if ($loop->first) is-active @endif" data-slide @unless ($loop->first) inert aria-hidden="true" @endunless>

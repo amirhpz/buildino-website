@@ -66,15 +66,16 @@ p{color:var(--muted)}
 [data-theme="dark"] .theme-icons svg:last-child{display:block}
 .menu-toggle{display:none}
 
-.hero{padding:108px 0 24px;background:linear-gradient(180deg,#eaf4f1,transparent 95%)}
+.hero{position:relative;isolation:isolate;padding:108px 0 24px;background:linear-gradient(180deg,#eaf4f1,transparent 95%)}
 [data-theme="dark"] .hero{background:linear-gradient(180deg,#102d3d,transparent 95%)}
-.hero-shell{position:relative;overflow:hidden;min-height:570px;border-radius:28px;background:radial-gradient(circle at 80% 12%,rgba(37,177,166,.23),transparent 30%),linear-gradient(135deg,#103a50,#0c2339 67%);color:#fff;box-shadow:0 25px 75px rgba(7,36,55,.16)}
-.hero-shell:after{content:"";position:absolute;inset:auto -120px -300px auto;width:560px;height:560px;border:1px solid rgba(131,230,210,.16);border-radius:50%;pointer-events:none}
-.hero-border-orbits{position:absolute;inset:0;z-index:0;display:grid;grid-template-columns:repeat(auto-fill,72px);grid-template-rows:repeat(auto-fill,72px);direction:ltr;overflow:hidden;pointer-events:none;background-image:linear-gradient(rgba(131,230,210,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(131,230,210,.055) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,transparent,#000 18% 82%,transparent)}
-.hero-border-orbits i{position:relative;display:block;padding:1px;border-radius:1px;background:conic-gradient(from var(--hero-orbit-angle),transparent 0 72%,rgba(131,230,210,.14) 79%,#73e9d7 87%,rgba(131,230,210,.5) 91%,transparent 97%);filter:drop-shadow(0 0 5px rgba(18,183,164,.3));opacity:.72;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:hero-border-orbit 6s linear infinite}
-.hero-border-orbits i:nth-child(1){grid-column:2 / span 3;grid-row:2 / span 1}
-.hero-border-orbits i:nth-child(2){grid-column:-5 / span 2;grid-row:5 / span 2;animation-duration:7.2s;animation-delay:-2.4s}
-.hero-border-orbits i:nth-child(3){grid-column:5 / span 4;grid-row:7 / span 1;animation-duration:8.4s;animation-delay:-4s;opacity:.5}
+.hero-shell{position:relative;z-index:1;overflow:hidden;min-height:570px;border-radius:28px;background:radial-gradient(circle at 80% 12%,rgba(37,177,166,.23),transparent 30%),linear-gradient(135deg,#103a50,#0c2339 67%);color:#fff;box-shadow:0 25px 75px rgba(7,36,55,.16)}
+.hero-border-orbits{position:absolute;inset:0;z-index:0;display:grid;grid-template-columns:repeat(auto-fill,72px);grid-template-rows:repeat(auto-fill,72px);direction:ltr;overflow:hidden;pointer-events:none;background-image:linear-gradient(rgba(18,142,132,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(18,142,132,.13) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,transparent,#000 13% 83%,transparent)}
+.hero-border-orbits i{position:relative;display:block;padding:1px;border-radius:1px;background:conic-gradient(from var(--hero-orbit-angle),transparent 0 72%,rgba(18,142,132,.2) 79%,#0b9f94 87%,rgba(18,142,132,.55) 91%,transparent 97%);filter:drop-shadow(0 0 5px rgba(18,142,132,.3));opacity:.72;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:hero-border-orbit 6s linear infinite}
+[data-theme="dark"] .hero-border-orbits{background-image:linear-gradient(rgba(131,230,210,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(131,230,210,.1) 1px,transparent 1px)}
+[data-theme="dark"] .hero-border-orbits i{background:conic-gradient(from var(--hero-orbit-angle),transparent 0 72%,rgba(131,230,210,.14) 79%,#73e9d7 87%,rgba(131,230,210,.5) 91%,transparent 97%)}
+.hero-border-orbits i:nth-child(1){grid-column:1 / span 2;grid-row:2 / span 1}
+.hero-border-orbits i:nth-child(2){grid-column:-3 / span 2;grid-row:5 / span 2;animation-duration:7.2s;animation-delay:-2.4s}
+.hero-border-orbits i:nth-child(3){grid-column:5 / span 4;grid-row:1 / span 1;animation-duration:8.4s;animation-delay:-4s;opacity:.5}
 .hero-slides{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr)}
 .hero-slide{grid-area:1 / 1;display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:18px;min-height:510px;padding:64px 72px 44px;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .35s ease,visibility .35s}
 .hero-slide.is-active{visibility:visible;opacity:1;pointer-events:auto}
