@@ -199,8 +199,8 @@ p{color:var(--muted)}
 .form-alert{padding:10px 14px;border-radius:8px;background:#dff9ef;color:#0a5c4e;font-size:12px}
 .form-alert.is-error{background:#ffe8e3;color:#8c3423}
 .site-footer{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;min-height:330px;padding:48px 0 24px;background:#0b2237;color:#fff}
-.footer-skyline{position:absolute;top:0;left:50%;z-index:0;width:auto;height:100%;max-width:none;object-fit:contain;transform:translateX(-50%);opacity:.72;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 70% 75% at center,#000 35%,transparent 100%);mask-image:radial-gradient(ellipse 70% 75% at center,#000 35%,transparent 100%)}
-.site-footer:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(11,34,55,.94),rgba(11,34,55,.42) 38%,rgba(11,34,55,.32) 58%,rgba(11,34,55,.94));pointer-events:none}
+.footer-skyline{position:absolute;inset-block:0;left:0;z-index:0;width:auto;height:100%;max-width:none;object-fit:contain;object-position:left center;opacity:.34;filter:saturate(.78) contrast(.96);pointer-events:none;-webkit-mask-image:linear-gradient(to right,#000 0 54%,rgba(0,0,0,.72) 73%,transparent 100%);mask-image:linear-gradient(to right,#000 0 54%,rgba(0,0,0,.72) 73%,transparent 100%)}
+.site-footer:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to left,rgba(11,34,55,.98) 0%,rgba(11,34,55,.9) 44%,rgba(11,34,55,.5) 100%);pointer-events:none}
 .footer-main,.footer-bottom{position:relative;z-index:2}
 .footer-main{display:flex;justify-content:space-between;gap:25px;padding-bottom:32px}
 .footer-main p{max-width:350px;margin:10px 0 0;color:#adc5cd;font-size:12px}
@@ -318,8 +318,8 @@ p{color:var(--muted)}
   .footer-main nav{flex-wrap:wrap;gap:11px;margin-top:22px}
   .footer-bottom a{display:block;margin-top:7px}
   .site-footer{min-height:260px;padding:35px 0 22px}
-  .footer-skyline{opacity:.4}
-  .site-footer:before{background:rgba(11,34,55,.74)}
+  .footer-skyline{opacity:.24}
+  .site-footer:before{background:rgba(11,34,55,.78)}
   .contact-float{left:12px;bottom:12px}
   .float-toggle{min-height:44px;padding:9px 12px}
   .pricing-hero{padding:115px 0 55px}
