@@ -65,7 +65,7 @@
                 <div class="hero-border-orbits" aria-hidden="true"><i></i><i></i><i></i></div>
                 <div class="hero-slides" aria-live="off">
                     @foreach (config('home.slides') as $slide)
-                        <article class="hero-slide" data-slide @if (!$loop->first) hidden @endif>
+                        <article class="hero-slide @if ($loop->first) is-active @endif" data-slide @unless ($loop->first) inert aria-hidden="true" @endunless>
                             <div class="hero-content">
                                 <span class="hero-kicker"><span class="kicker-dot"></span>{{ $slide['eyebrow'] }}</span>
                                 @if ($loop->first)

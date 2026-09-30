@@ -85,6 +85,7 @@ ready(() => {
 
     document.querySelectorAll('[data-carousel]').forEach((carousel) => {
         const slides = [...carousel.querySelectorAll('[data-slide]')];
+        const stackedSlides = carousel.classList.contains('hero-shell');
         const dots = [...carousel.querySelectorAll('[data-slide-dot]')];
         const previous = carousel.querySelector('[data-slide-prev]');
         const next = carousel.querySelector('[data-slide-next]');
@@ -97,7 +98,17 @@ ready(() => {
         let index = 0;
         const show = (target) => {
             index = (target + slides.length) % slides.length;
-            slides.forEach((slide, slideIndex) => { slide.hidden = slideIndex !== index; });
+            slides.forEach((slide, slideIndex) => {
+                const active = slideIndex === index;
+                if (stackedSlides) {
+                    slide.classList.toggle('is-active', active);
+                    slide.toggleAttribute('inert', !active);
+                    if (active) slide.removeAttribute('aria-hidden');
+                    else slide.setAttribute('aria-hidden', 'true');
+                } else {
+                    slide.hidden = !active;
+                }
+            });
             dots.forEach((dot, dotIndex) => {
                 if (dotIndex === index) dot.setAttribute('aria-current', 'true');
                 else dot.removeAttribute('aria-current');
