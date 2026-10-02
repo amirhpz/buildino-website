@@ -1,0 +1,14 @@
+{
+  "file": "buildino-shared-host.zip",
+  "bytes": 13993580,
+  "files": 6302,
+  "sha256": "1ff28a59d15d976b2e39bb553e0319555b2508042ad71bbe30a2628bf81ff684",
+  "vendor": "composer install --no-dev --no-scripts --prefer-dist --optimize-autoloader",
+  "excludes": [
+    "real .env",
+    "local caches",
+    "logs",
+    "databases",
+    "Node dependencies"
+  ]
+}

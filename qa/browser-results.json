@@ -1,0 +1,1067 @@
+[
+  {
+    "browser": "chrome",
+    "width": 360,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 360,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 360,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 360,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 360,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 360,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 360,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 360,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 360,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 360,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 390,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 390,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 390,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 390,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 390,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 390,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 390,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 390,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 390,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 390,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 768,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 768,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 768,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 768,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 768,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 768,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 768,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 768,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 768,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 768,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1024,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1024,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1024,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1024,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1024,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1440,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1440,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1440,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1440,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1440,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "chrome",
+    "interactions": true,
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 360,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 360,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 360,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 360,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 360,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 360,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 360,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 360,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 360,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 360,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 390,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 390,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 390,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 390,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 390,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 390,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 390,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 390,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 390,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 390,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 768,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 768,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 768,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 768,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 768,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 768,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 768,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 768,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 768,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 768,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1024,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1024,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1024,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1024,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1024,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1440,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1440,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1440,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1440,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1440,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "firefox",
+    "interactions": true,
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/pricing",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/features",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/about",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "path": "/contact",
+    "pass": true
+  },
+  {
+    "browser": "webkit",
+    "interactions": true,
+    "pass": true
+  }
+]

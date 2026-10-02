@@ -1,0 +1,31 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "path": "/features",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "path": "/pricing",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "pass": true
+    }
+  ],
+  "status404": 404,
+  "javascriptErrors": []
+}

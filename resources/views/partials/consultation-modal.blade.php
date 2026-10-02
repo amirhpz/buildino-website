@@ -4,15 +4,16 @@
         <div class="consultation-intro"><span class="consultation-badge"><x-icon name="building" size="24" /></span>
         <span class="eyebrow">مشاوره بیلدینو</span>
         <h2 id="consultation-title">از ساختمان شما شروع کنیم</h2>
-        <p id="consultation-description">نام و شماره تماس خود را وارد کنید.</p></div>
+        <p id="consultation-description">این فرم نمایشی است؛ اطلاعات ارسال یا ذخیره نمی‌شوند.</p></div>
         <form method="dialog" data-consultation-form>
             <div class="consultation-fields">
                 <label for="consultation-name">نام و نام خانوادگی<input id="consultation-name" name="name" autocomplete="name" maxlength="100" required autofocus placeholder="نام شما"></label>
-                <label for="consultation-phone">شماره تماس<input id="consultation-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" pattern="[+0-9۰-۹٠-٩ ()\-]{7,20}" minlength="7" maxlength="20" required placeholder="0912 123 4567" title="شماره تماس را با ارقام وارد کنید"></label>
+                <label for="consultation-phone">شماره تماس<input id="consultation-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" pattern="\+?[0-9۰-۹٠-٩ \(\)\-]{7,20}" minlength="7" maxlength="20" required placeholder="0912 123 4567" title="شماره تماس را با ۷ تا ۱۵ رقم فارسی یا انگلیسی وارد کنید" aria-describedby="phone-help"></label>
             </div>
-            <label for="consultation-building">نام ساختمان <span>(اختیاری)</span><input id="consultation-building" name="building" maxlength="100" placeholder="نام ساختمان یا مجتمع"></label>
-            <label for="consultation-message">پیام شما <span>(اختیاری)</span><textarea id="consultation-message" name="message" rows="3" maxlength="2000" placeholder="درباره نیاز ساختمان خود بنویسید"></textarea></label>
-            <button class="button button-primary consultation-submit" type="submit"><span data-submit-label>ارسال درخواست</span><span class="consultation-send-icon"><x-icon name="arrow" size="18" /></span><span class="consultation-spinner" aria-hidden="true"></span></button>
+            <small id="phone-help" class="form-note">شماره تماس: ۷ تا ۱۵ رقم فارسی یا انگلیسی؛ فاصله و پرانتز مجاز است.</small>
+            <label for="consultation-building"><span class="field-label">نام ساختمان <small>اختیاری</small></span><input id="consultation-building" name="building" maxlength="100" placeholder="نام ساختمان یا مجتمع"></label>
+            <label for="consultation-message"><span class="field-label">پیام شما <small>اختیاری</small></span><textarea id="consultation-message" name="message" rows="2" maxlength="2000" placeholder="درباره نیاز ساختمان خود بنویسید"></textarea></label>
+            <button class="button button-primary consultation-submit" type="submit"><span data-submit-label>نمایش ارسال درخواست</span><span class="consultation-send-icon"><x-icon name="arrow" size="18" /></span><span class="consultation-spinner" aria-hidden="true"></span></button>
         </form>
         <div class="consultation-complete" data-consultation-complete role="status" tabindex="-1" hidden>
             <div class="consultation-success-art" aria-hidden="true">
@@ -22,7 +23,7 @@
                 <span class="consultation-spark spark-one"></span><span class="consultation-spark spark-two"></span><span class="consultation-spark spark-three"></span><span class="consultation-spark spark-four"></span>
             </div>
             <h3>سپاس از شما</h3>
-            <p>از همراهی شما با بیلدینو خوشحالیم.</p>
+            <p>نمایش کامل شد؛ اطلاعاتی ارسال نشده است.</p>
         </div>
     </div>
 </dialog>

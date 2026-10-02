@@ -34,27 +34,14 @@ final class SeoController extends Controller
     public function sitemap(): Response
     {
         $baseUrl = $this->baseUrl();
-        $location = htmlspecialchars($baseUrl.'/', ENT_XML1 | ENT_QUOTES, 'UTF-8');
-        $pricingLocation = htmlspecialchars($baseUrl.'/pricing', ENT_XML1 | ENT_QUOTES, 'UTF-8');
         $lastModified = $this->lastModifiedDate();
-
-        $xml = <<<XML
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>{$location}</loc>
-        <lastmod>{$lastModified}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>{$pricingLocation}</loc>
-        <lastmod>{$lastModified}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-</urlset>
-XML;
+        $entries = '';
+        foreach (['/', '/pricing', '/features', '/about', '/contact'] as $path) {
+            $location = htmlspecialchars($baseUrl.$path, ENT_XML1 | ENT_QUOTES, 'UTF-8');
+            $entries .= "<url><loc>{$location}</loc><lastmod>{$lastModified}</lastmod></url>\n";
+        }
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>'."\n"
+            .'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'.$entries.'</urlset>';
 
         return response($xml, 200, [
             'Content-Type' => 'application/xml; charset=UTF-8',
@@ -108,14 +95,14 @@ TXT;
 
     private function lastModifiedDate(): string
     {
-        $files = [
+        $files = array_merge(glob(resource_path('views/*.blade.php')), glob(resource_path('views/partials/*.blade.php')), glob(resource_path('views/layouts/*.blade.php')), [
             resource_path('views/home.blade.php'),
             resource_path('views/pricing.blade.php'),
             resource_path('css/app.css'),
             resource_path('js/app.js'),
             config_path('buildino.php'),
             config_path('home.php'),
-        ];
+        ]);
 
         $timestamps = array_filter(array_map(
             static fn (string $file): int|false => is_file($file) ? filemtime($file) : false,

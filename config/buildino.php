@@ -13,7 +13,7 @@ return [
     ),
     'locale' => 'fa_IR',
     'language' => 'fa-IR',
-    'social_image' => '/images/buildings.png',
+    'social_image' => '/images/brand-share.png',
     'social_image_alt' => 'بیلدینو؛ پلتفرم مدیریت هوشمند ساختمان و مجتمع',
     'features' => [
         'مدیریت مجتمع، بلوک، واحد، مالک، مستأجر و ساکنان',
