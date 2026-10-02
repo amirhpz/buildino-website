@@ -42,7 +42,7 @@
             <nav id="primary-navigation" class="main-nav" aria-label="ناوبری اصلی" data-main-nav>
                 <a href="#features">امکانات</a>
                 <a href="#services">خدمات</a>
-                <a href="#projects">پروژه‌ها</a>
+                @if (count(config('home.projects', [])))<a href="#projects">پروژه‌ها</a>@endif
                 <a href="#pricing">تعرفه‌ها</a>
                 <a href="#about">درباره ما</a>
             </nav>
@@ -50,7 +50,7 @@
                 <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="تغییر حالت نمایش">
                     <span class="theme-icons"><x-icon name="moon" /><x-icon name="sun" /></span>
                 </button>
-                <a class="button button-small button-primary nav-cta" href="#contact">درخواست مشاوره</a>
+                <button type="button" data-consultation-open aria-haspopup="dialog" class="button button-small button-primary nav-cta">درخواست مشاوره</button>
                 <button class="icon-button menu-toggle" type="button" data-menu-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="باز کردن فهرست">
                     <span class="menu-icon-open"><x-icon name="menu" /></span>
                     <span class="menu-icon-close" hidden><x-icon name="close" /></span>
@@ -76,7 +76,7 @@
                                 <p>{{ $slide['description'] }}</p>
                                 <div class="hero-actions">
                                     <a class="button button-mint" href="{{ $slide['target'] }}">{{ $slide['cta'] }} <x-icon name="arrow" size="18" /></a>
-                                    <a class="button button-outline-light" href="#contact">گفت‌وگو درباره نیاز شما</a>
+                                    <button type="button" data-consultation-open aria-haspopup="dialog" class="button button-outline-light">گفت‌وگو درباره نیاز شما</button>
                                 </div>
                             </div>
                             <div class="hero-visual">
@@ -132,7 +132,7 @@
             <div class="container">
                 <div class="section-heading">
                     <div><span class="eyebrow">خدمات ما</span><h2 id="services-title">از مدیریت روزمره تا خدمات آینده</h2></div>
-                    <p>راهکارهای فعلی و مسیر توسعه بیلدینو را شفاف و خلاصه معرفی کرده‌ایم.</p>
+                    <p>خدمات موردنیاز ساختمان را بشناسید و درخواست‌های خود را پیگیری کنید.</p>
                 </div>
                 <div class="service-grid">
                     @foreach (config('home.services') as $service)
@@ -146,36 +146,50 @@
             </div>
         </section>
 
+        @if (count(config('home.projects', [])))
         <section class="section projects-section" id="projects" aria-labelledby="projects-title">
             <div class="container">
                 <div class="section-heading">
-                    <div><span class="eyebrow">ساختمان‌ها و پروژه‌ها</span><h2 id="projects-title">تجربه‌هایی که با اعتماد شکل می‌گیرند</h2></div>
-                    <p>اسلایدهای فعلی نمونهٔ طراحی هستند و بعداً با تصویر و اطلاعات پروژه‌های تأییدشده جایگزین می‌شوند.</p>
+                    <div><span class="eyebrow">همراهان بیلدینو</span><h2 id="projects-title">ساختمان‌های تحت پوشش ما</h2></div>
+                    <p>با ساختمان‌ها و مجتمع‌های همراه بیلدینو آشنا شوید.</p>
                 </div>
-                @if (count(config('home.projects')))
-                    <div class="project-carousel" data-carousel>
-                        <div aria-live="off">
+                <div class="project-carousel" data-carousel data-autoplay="true" role="region" aria-roledescription="اسلایدر" aria-labelledby="projects-title" tabindex="0">
+                    <div aria-live="off">
+                        @foreach (config('home.projects') as $project)
+                            <article class="project-slide" data-slide role="group" aria-roledescription="اسلاید" aria-label="{{ $loop->iteration }} از {{ $loop->count }}" @if (!$loop->first) hidden @endif>
+                                @if (!empty($project['image']))
+                                    <img class="covered-building-photo" src="{{ asset($project['image']) }}" alt="{{ $project['image_alt'] ?? $project['name'] }}" loading="lazy" width="640" height="480">
+                                @else
+                                    <div class="covered-building-icon" aria-hidden="true"><x-icon name="building" size="100" /></div>
+                                @endif
+                                <div class="project-copy">
+                                    <span>{{ $project['location'] ?? 'تحت پوشش بیلدینو' }}</span>
+                                    <h3>{{ $project['name'] }}</h3>
+                                    @if (!empty($project['description']))<p>{{ $project['description'] }}</p>@endif
+                                </div>
+                            </article>
+                        @endforeach
+                    </div>
+                    @if (count(config('home.projects')) > 1)
+                        <div class="project-controls">
+                            <button type="button" data-slide-prev aria-label="ساختمان قبلی"><x-icon name="chevron" size="18" /></button>
+                            <button type="button" data-slide-next aria-label="ساختمان بعدی"><x-icon name="chevron" size="18" /></button>
+                        </div>
+                        <div class="covered-building-dots slider-dots" aria-label="انتخاب ساختمان">
                             @foreach (config('home.projects') as $project)
-                                <article class="project-slide" data-slide @if (!$loop->first) hidden @endif>
-                                    <img src="{{ asset($project['image']) }}" alt="{{ $project['image_alt'] }}" loading="lazy">
-                                    <div class="project-copy"><span>{{ $project['status'] }}</span><h3>{{ $project['name'] }}</h3><p>{{ $project['description'] }}</p></div>
-                                </article>
+                                <button type="button" data-slide-dot aria-label="نمایش {{ $project['name'] }}" @if ($loop->first) aria-current="true" @endif></button>
                             @endforeach
                         </div>
-                        <div class="project-controls"><button type="button" data-slide-prev aria-label="پروژه قبلی"><x-icon name="chevron" size="18" /></button><button type="button" data-slide-next aria-label="پروژه بعدی"><x-icon name="chevron" size="18" /></button></div>
-                    </div>
-                @else
-                    <div class="project-placeholder">
-                        <div><span class="placeholder-label">پروژه‌های بیلدینو</span><h3>معرفی ساختمان‌ها به‌زودی</h3><p>پس از تأیید اطلاعات هر پروژه، تصاویر و جزئیات آن را در این بخش خواهید دید.</p></div>
-                        <img src="{{ asset('images/building-with-shadow.webp') }}" alt="" loading="lazy" width="560" height="420">
-                    </div>
-                @endif
+                    @endif
+                </div>
             </div>
         </section>
+        @endif
 
+        @if (count(config('home.statistics', [])))
         <section class="section stats-section" id="stats" aria-labelledby="stats-title">
             <div class="container stats-shell">
-                <div><span class="eyebrow">بیلدینو در یک نگاه</span><h2 id="stats-title">رشد در یک نگاه</h2><p>اعداد فعلی صرفاً نمایشی هستند و پیش از انتشار رسمی با آمار تأییدشده جایگزین می‌شوند.</p></div>
+                <div><span class="eyebrow">بیلدینو در یک نگاه</span><h2 id="stats-title">رشد در یک نگاه</h2><p>ساختمان‌ها، ساکنان و خدمات بیلدینو در یک نگاه.</p></div>
                 <div class="stats-grid">
                     @foreach (['مجتمع‌ها', 'واحدهای تحت مدیریت', 'کاربران', 'خدمات ثبت‌شده'] as $label)
                         <div><strong>{{ config('home.statistics.'.$loop->index.'.value', '—') }}</strong><span>{{ config('home.statistics.'.$loop->index.'.label', $label) }}</span></div>
@@ -183,6 +197,7 @@
                 </div>
             </div>
         </section>
+        @endif
 
         <section class="section" id="pricing" aria-labelledby="pricing-title">
             <div class="container">
@@ -205,14 +220,15 @@
 
         <section class="section enterprise-section" id="enterprise" aria-labelledby="enterprise-title">
             <div class="container enterprise-shell">
-                <div class="enterprise-copy"><span class="eyebrow">مشتریان سازمانی</span><h2 id="enterprise-title">برای مقیاس بزرگ هم آماده فکر می‌کنیم.</h2><p>برج‌ها، مجتمع‌های چندبلوکی و مجموعه‌های سازمانی به فرایندها و سطح دسترسی متناسب با ساختار خود نیاز دارند. بیلدینو این نیازها را در قالب راهکار اختصاصی بررسی می‌کند.</p><a class="button button-mint" href="#contact">گفت‌وگو درباره مجموعه شما <x-icon name="arrow" size="18" /></a></div>
+                <div class="enterprise-copy"><span class="eyebrow">مشتریان سازمانی</span><h2 id="enterprise-title">مدیریت برج‌ها و مجتمع‌های بزرگ</h2><p>برج‌ها، مجتمع‌های چندبلوکی و مجموعه‌های سازمانی به فرایندها و سطح دسترسی متناسب با ساختار خود نیاز دارند. بیلدینو این نیازها را در قالب راهکار اختصاصی بررسی می‌کند.</p><button type="button" data-consultation-open aria-haspopup="dialog" class="button button-mint">گفت‌وگو درباره مجموعه شما <x-icon name="arrow" size="18" /></button></div>
                 <div class="enterprise-visual" aria-hidden="true"><span class="enterprise-orbit"></span><img src="{{ asset('images/buildings.webp') }}" alt="" loading="lazy" width="570" height="430"></div>
             </div>
         </section>
 
+        @if (count(config('home.articles', [])))
         <section class="section" id="insights" aria-labelledby="insights-title">
             <div class="container">
-                <div class="section-heading"><div><span class="eyebrow">اخبار و مقالات</span><h2 id="insights-title">دانش بهتر برای مدیریت بهتر</h2></div><p>کارت‌های فعلی نمونهٔ طراحی‌اند؛ عنوان و لینک مقاله‌های منتشرشده بعداً جایگزین می‌شوند.</p></div>
+                <div class="section-heading"><div><span class="eyebrow">اخبار و مقالات</span><h2 id="insights-title">دانش بهتر برای مدیریت بهتر</h2></div><p>راهنماها و خبرهای مدیریت ساختمان.</p></div>
                 @if (count(config('home.articles')))
                     <div class="article-grid">
                         @foreach (array_slice(config('home.articles'), 0, 3) as $article)
@@ -224,25 +240,26 @@
                 @endif
             </div>
         </section>
+        @endif
 
         <section class="section section-soft about-section" id="about" aria-labelledby="about-title">
-            <div class="container about-shell"><div><span class="eyebrow">درباره ما</span><h2 id="about-title">زندگی بهتر، با مدیریت هوشمندتر مجتمع.</h2></div><div><p>بیلدینو با هدف ساده‌کردن کارهای ساختمان و بهترکردن ارتباط میان مدیر، مالک و ساکن شکل گرفته است. تلاش ما ساختن تجربه‌ای شفاف، در دسترس و قابل توسعه برای مجتمع‌های کوچک و بزرگ است.</p><a class="text-link" href="#contact">با بیلدینو در ارتباط باشید <x-icon name="arrow" size="18" /></a></div></div>
+            <div class="container about-shell"><div><span class="eyebrow">درباره ما</span><h2 id="about-title">زندگی بهتر، با مدیریت هوشمندتر مجتمع.</h2></div><div><p>بیلدینو کارهای روزمره ساختمان را ساده‌تر می‌کند؛ از مدیریت شارژ و درخواست خدمات تا رزرو امکانات و ارتباط با مدیر ساختمان.</p><a class="text-link" href="#contact">با بیلدینو در ارتباط باشید <x-icon name="arrow" size="18" /></a></div></div>
         </section>
 
         <section class="section contact-section" id="contact" aria-labelledby="contact-title">
             <div class="container contact-shell">
-                <div class="contact-intro"><span class="eyebrow">تماس با ما</span><h2 id="contact-title">برای ساختمان شما چه کاری می‌توانیم انجام دهیم؟</h2><p>برای شناخت راهکار مناسب مجموعه‌تان و دریافت اطلاعات تعرفه‌ها با ما در ارتباط باشید.</p>@if ($contact['phone_is_demo'] || $contact['email_is_demo'] || $contact['address_is_demo'])<p class="demo-note">موارد با برچسب «نمونه» اطلاعات واقعی تماس نیستند.</p>@endif
+                <div class="contact-intro"><span class="eyebrow">تماس با ما</span><h2 id="contact-title">برای ساختمان شما چه کاری می‌توانیم انجام دهیم؟</h2><p>برای شناخت راهکار مناسب مجموعه‌تان و دریافت اطلاعات تعرفه‌ها با ما در ارتباط باشید.</p>
                     <div class="contact-details">
-                        @if (filled($contact['phone']))@if ($contact['phone_is_demo'])<div><span>تلفن · نمونه</span><strong dir="ltr">{{ $contact['phone'] }}</strong></div>@else<a href="tel:{{ preg_replace('/[^+0-9]/', '', $contact['phone']) }}"><span>تلفن</span><strong dir="ltr">{{ $contact['phone'] }}</strong></a>@endif @endif
-                        @if (filled($contact['email']))@if ($contact['email_is_demo'])<div><span>ایمیل · نمونه</span><strong dir="ltr">{{ $contact['email'] }}</strong></div>@else<a href="mailto:{{ $contact['email'] }}"><span>ایمیل</span><strong dir="ltr">{{ $contact['email'] }}</strong></a>@endif @endif
-                        @if (filled($contact['address']))<div><span>آدرس @if ($contact['address_is_demo']) · نمونه @endif</span><strong>{{ $contact['address'] }}</strong></div>@endif
-                        @if (blank($contact['phone']) && blank($contact['email']) && blank($contact['address']))<div class="contact-pending">اطلاعات تماس رسمی پس از تأیید در این بخش قرار می‌گیرد.</div>@endif
+                        @if (filled($contact['phone']))<a href="tel:{{ preg_replace('/[^+0-9]/', '', $contact['phone']) }}"><span>تلفن</span><strong dir="ltr">{{ $contact['phone'] }}</strong></a>@endif
+                        @if (filled($contact['email']))<a href="mailto:{{ $contact['email'] }}"><span>ایمیل</span><strong dir="ltr">{{ $contact['email'] }}</strong></a>@endif
+                        @if (filled($contact['address']))<div><span>آدرس</span><strong>{{ $contact['address'] }}</strong></div>@endif
                     </div>
                     <div class="social-links">
-                        @if (filled($contact['instagram']))<a href="{{ $contact['instagram'] }}" target="_blank" rel="noopener noreferrer">اینستاگرام</a>@else<span>اینستاگرام · نمونه</span>@endif
-                        @if (filled($contact['linkedin']))<a href="{{ $contact['linkedin'] }}" target="_blank" rel="noopener noreferrer">لینکدین</a>@else<span>لینکدین · نمونه</span>@endif
+                        @if (filled($contact['instagram']))<a href="{{ $contact['instagram'] }}" target="_blank" rel="noopener noreferrer">اینستاگرام</a>@endif
+                        @if (filled($contact['linkedin']))<a href="{{ $contact['linkedin'] }}" target="_blank" rel="noopener noreferrer">لینکدین</a>@endif
                     </div>
                 </div>
+                @if ($contactReady)
                 <div class="contact-form-card"><span class="form-kicker">درخواست مشاوره</span><h3>پیام خود را برای ما بنویسید</h3>
                     @if (session('contact_success'))<p class="form-alert" role="status">{{ session('contact_success') }}</p>@endif
                     @if ($errors->any())<p class="form-alert is-error" role="alert">لطفاً اطلاعات فرم را بررسی کنید و دوباره بفرستید.</p>@endif
@@ -252,9 +269,9 @@
                         <label>موضوع<select name="subject" required @disabled(!$contactReady)><option value="">انتخاب موضوع</option><option value="consultation" @selected(old('subject') === 'consultation')>مشاوره و راه‌اندازی</option><option value="pricing" @selected(old('subject') === 'pricing')>تعرفه‌ها</option><option value="services" @selected(old('subject') === 'services')>خدمات</option></select></label>
                         <label>پیام<textarea name="message" rows="4" maxlength="2000" required @disabled(!$contactReady)>{{ old('message') }}</textarea></label>
                         <button class="button button-primary" type="submit" @disabled(!$contactReady)>ارسال درخواست <x-icon name="arrow" size="17" /></button>
-                        @unless ($contactReady)<p class="form-note">فرم پس از ثبت ایمیل رسمی و سرویس ارسال فعال می‌شود.</p>@endunless
                     </form>
                 </div>
+                @endif
             </div>
         </section>
     </main>

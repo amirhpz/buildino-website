@@ -117,6 +117,25 @@ ready(() => {
         previous?.addEventListener('click', () => show(index - 1));
         next?.addEventListener('click', () => show(index + 1));
         dots.forEach((dot, dotIndex) => dot.addEventListener('click', () => show(dotIndex)));
+        if (carousel.classList.contains('project-carousel')) {
+            carousel.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+                    event.preventDefault();
+                    show(index + (event.key === 'ArrowLeft' ? 1 : -1));
+                }
+            });
+            let touchStartX = null;
+            carousel.addEventListener('touchstart', (event) => {
+                touchStartX = event.touches.length === 1 ? event.touches[0].clientX : null;
+            }, { passive: true });
+            carousel.addEventListener('touchend', (event) => {
+                if (touchStartX === null) return;
+                const distance = event.changedTouches[0].clientX - touchStartX;
+                if (Math.abs(distance) > 50) show(index + (distance > 0 ? 1 : -1));
+                touchStartX = null;
+            }, { passive: true });
+        }
+
 
         if (carousel.dataset.autoplay === 'true' && !reduceMotion) {
             window.setInterval(() => {
@@ -144,4 +163,72 @@ ready(() => {
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') { closeMenu(); closeContact(); }
     });
+
+    const consultationModal = document.querySelector('[data-consultation-modal]');
+    const consultationForm = consultationModal?.querySelector('[data-consultation-form]');
+    const consultationComplete = consultationModal?.querySelector('[data-consultation-complete]');
+    const consultationSubmit = consultationForm?.querySelector('[type="submit"]');
+    const consultationLabel = consultationForm?.querySelector('[data-submit-label]');
+    let consultationTimers = [];
+    const clearConsultationTimers = () => {
+        consultationTimers.forEach(window.clearTimeout);
+        consultationTimers = [];
+    };
+    const scheduleConsultation = (callback, delay) => {
+        consultationTimers.push(window.setTimeout(callback, delay));
+    };
+    const closeConsultation = () => {
+        if (!consultationModal?.open || consultationModal.classList.contains('is-closing')) return;
+        clearConsultationTimers();
+        consultationModal.classList.add('is-closing');
+        scheduleConsultation(() => consultationModal.close(), reduceMotion ? 0 : 280);
+    };
+    document.querySelectorAll('[data-consultation-open]').forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+            if (!consultationModal || consultationModal.open) return;
+            closeMenu();
+            closeContact();
+            consultationModal.showModal();
+            document.body.classList.add('consultation-open');
+        });
+    });
+    consultationModal?.querySelector('[data-consultation-close]')?.addEventListener('click', closeConsultation);
+    consultationModal?.addEventListener('cancel', (event) => {
+        event.preventDefault();
+        closeConsultation();
+    });
+    consultationModal?.addEventListener('click', (event) => {
+        const bounds = consultationModal.getBoundingClientRect();
+        if (event.target === consultationModal && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) closeConsultation();
+    });
+    consultationForm?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (consultationModal.classList.contains('is-submitting') || consultationModal.classList.contains('is-complete') || consultationModal.classList.contains('is-closing')) return;
+        consultationModal.classList.add('is-submitting');
+        consultationForm.setAttribute('aria-busy', 'true');
+        consultationSubmit.disabled = true;
+        consultationLabel.textContent = 'یک لحظه…';
+        // Presentation only; this form does not send or persist information.
+        scheduleConsultation(() => {
+            consultationModal.classList.remove('is-submitting');
+            consultationModal.classList.add('is-complete');
+            consultationForm.removeAttribute('aria-busy');
+            consultationComplete.hidden = false;
+            consultationComplete.focus({ preventScroll: true });
+            consultationForm.inert = true;
+            scheduleConsultation(closeConsultation, reduceMotion ? 900 : 1500);
+        }, reduceMotion ? 0 : 650);
+    });
+    consultationModal?.addEventListener('close', () => {
+        clearConsultationTimers();
+        document.body.classList.remove('consultation-open');
+        consultationModal.classList.remove('is-submitting', 'is-complete', 'is-closing');
+        consultationForm.removeAttribute('aria-busy');
+        consultationForm.inert = false;
+        consultationForm.reset();
+        consultationSubmit.disabled = false;
+        consultationLabel.textContent = 'ارسال درخواست';
+        consultationComplete.hidden = true;
+    });
+
 });
