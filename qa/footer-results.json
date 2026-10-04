@@ -1,0 +1,173 @@
+{
+  "scope": "Initial footer redesign before subsequent typography, skyline and card removal changes. See REPORT.md for final revision checks.",
+  "testedAt": "2026-10-04T19:14:27.403Z",
+  "browsers": {
+    "chrome": {
+      "cases": [
+        {
+          "width": 360,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 360,
+          "theme": "dark",
+          "passed": true
+        },
+        {
+          "width": 390,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 390,
+          "theme": "dark",
+          "passed": true
+        },
+        {
+          "width": 768,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 768,
+          "theme": "dark",
+          "passed": true
+        },
+        {
+          "width": 1024,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 1024,
+          "theme": "dark",
+          "passed": true
+        },
+        {
+          "width": 1440,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 1440,
+          "theme": "dark",
+          "passed": true
+        }
+      ],
+      "linksAndInteractions": "passed",
+      "evidence": "Inline browser run and four screenshots"
+    },
+    "firefox": {
+      "testedAt": "2026-10-04T19:13:10.065Z",
+      "cases": [
+        {
+          "width": 360,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 360,
+          "theme": "dark",
+          "passed": true
+        },
+        {
+          "width": 390,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 390,
+          "theme": "dark",
+          "passed": true
+        },
+        {
+          "width": 768,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 768,
+          "theme": "dark",
+          "passed": true
+        },
+        {
+          "width": 1024,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 1024,
+          "theme": "dark",
+          "passed": true
+        },
+        {
+          "width": 1440,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 1440,
+          "theme": "dark",
+          "passed": true
+        }
+      ],
+      "linksAndInteractions": "passed"
+    },
+    "webkit": {
+      "cases": [
+        {
+          "width": 360,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 360,
+          "theme": "dark",
+          "passed": true
+        },
+        {
+          "width": 390,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 390,
+          "theme": "dark",
+          "passed": true
+        },
+        {
+          "width": 768,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 768,
+          "theme": "dark",
+          "passed": true
+        },
+        {
+          "width": 1024,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 1024,
+          "theme": "dark",
+          "passed": true
+        },
+        {
+          "width": 1440,
+          "theme": "light",
+          "passed": true
+        },
+        {
+          "width": 1440,
+          "theme": "dark",
+          "passed": true
+        }
+      ],
+      "linksAndInteractions": "passed"
+    }
+  }
+}
