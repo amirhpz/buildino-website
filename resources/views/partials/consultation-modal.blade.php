@@ -1,4 +1,4 @@
-@php($showConsultationDemoNote = !request()->routeIs('contact'))
+@php($showConsultationDemoNote = !request()->routeIs('home', 'contact'))
 <dialog class="consultation-modal" data-consultation-modal aria-labelledby="consultation-title" @if($showConsultationDemoNote) aria-describedby="consultation-description" @endif>
     <div class="consultation-content">
         <button class="consultation-close" type="button" data-consultation-close aria-label="بستن فرم">×</button>

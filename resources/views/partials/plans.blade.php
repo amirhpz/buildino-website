@@ -7,7 +7,7 @@
             @if ($consultation ?? false)
                 <button type="button" data-consultation-open aria-haspopup="dialog" class="button @if ($loop->index === 1) button-primary @else button-outline @endif">درخواست مشاوره <x-icon name="arrow" size="17" /></button>
             @else
-                <a class="button @if ($loop->index === 1) button-primary @else button-outline @endif" href="{{ route('pricing') }}">داده‌ی نمونه <x-icon name="arrow" size="17" /></a>
+                <a class="button @if ($loop->index === 1) button-primary @else button-outline @endif" href="{{ route('pricing') }}">مشاهده تعرفه‌ها <x-icon name="arrow" size="17" /></a>
             @endif
         </article>
     @endforeach

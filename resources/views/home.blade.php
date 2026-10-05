@@ -95,7 +95,6 @@
             <div class="container">
                 <div class="section-heading">
                     <div><span class="eyebrow">همراهان بیلدینو</span><h2 id="projects-title">ساختمان‌های تحت پوشش ما</h2></div>
-                    <p>سه ساختمان زیر نمونه‌ی طراحی‌اند و پیش از انتشار با اطلاعات واقعی جایگزین می‌شوند.</p>
                 </div>
                 <div class="project-carousel" data-carousel data-autoplay="true" role="region" aria-roledescription="اسلایدر" aria-labelledby="projects-title" tabindex="0">
                     <div aria-live="off">
@@ -107,7 +106,7 @@
                                     <div class="covered-building-icon" aria-hidden="true"><x-icon name="building" size="100" /></div>
                                 @endif
                                 <div class="project-copy">
-                                    <span>{{ $project['location'] ?? 'ساختمان نمونه' }}</span>
+                                    @if (!empty($project['location']))<span>{{ $project['location'] }}</span>@endif
                                     <h3>{{ $project['name'] }}</h3>
                                     @if (!empty($project['description']))<p>{{ $project['description'] }}</p>@endif
                                 </div>
