@@ -1,10 +1,11 @@
-<dialog class="consultation-modal" data-consultation-modal aria-labelledby="consultation-title" aria-describedby="consultation-description">
+@php($showConsultationDemoNote = !request()->routeIs('contact'))
+<dialog class="consultation-modal" data-consultation-modal aria-labelledby="consultation-title" @if($showConsultationDemoNote) aria-describedby="consultation-description" @endif>
     <div class="consultation-content">
         <button class="consultation-close" type="button" data-consultation-close aria-label="بستن فرم">×</button>
         <div class="consultation-intro"><span class="consultation-badge"><x-icon name="building" size="24" /></span>
         <span class="eyebrow">مشاوره بیلدینو</span>
         <h2 id="consultation-title">از ساختمان شما شروع کنیم</h2>
-        <p id="consultation-description">این فرم نمایشی است؛ اطلاعات ارسال یا ذخیره نمی‌شوند.</p></div>
+        @if($showConsultationDemoNote)<p id="consultation-description">این فرم نمایشی است؛ اطلاعات ارسال یا ذخیره نمی‌شوند.</p>@endif</div>
         <form method="dialog" data-consultation-form>
             <div class="consultation-fields">
                 <label for="consultation-name">نام و نام خانوادگی<input id="consultation-name" name="name" autocomplete="name" maxlength="100" required autofocus placeholder="نام شما"></label>
@@ -13,7 +14,7 @@
             <small id="phone-help" class="form-note">شماره تماس: ۷ تا ۱۵ رقم فارسی یا انگلیسی؛ فاصله و پرانتز مجاز است.</small>
             <label for="consultation-building"><span class="field-label">نام ساختمان <small>اختیاری</small></span><input id="consultation-building" name="building" maxlength="100" placeholder="نام ساختمان یا مجتمع"></label>
             <label for="consultation-message"><span class="field-label">پیام شما <small>اختیاری</small></span><textarea id="consultation-message" name="message" rows="2" maxlength="2000" placeholder="درباره نیاز ساختمان خود بنویسید"></textarea></label>
-            <button class="button button-primary consultation-submit" type="submit"><span data-submit-label>نمایش ارسال درخواست</span><span class="consultation-send-icon"><x-icon name="arrow" size="18" /></span><span class="consultation-spinner" aria-hidden="true"></span></button>
+            <button class="button button-primary consultation-submit" type="submit"><span data-submit-label>{{ $showConsultationDemoNote ? 'نمایش ارسال درخواست' : 'ارسال درخواست' }}</span><span class="consultation-send-icon"><x-icon name="arrow" size="18" /></span><span class="consultation-spinner" aria-hidden="true"></span></button>
         </form>
         <div class="consultation-complete" data-consultation-complete role="status" tabindex="-1" hidden>
             <div class="consultation-success-art" aria-hidden="true">
@@ -23,7 +24,7 @@
                 <span class="consultation-spark spark-one"></span><span class="consultation-spark spark-two"></span><span class="consultation-spark spark-three"></span><span class="consultation-spark spark-four"></span>
             </div>
             <h3>سپاس از شما</h3>
-            <p>نمایش کامل شد؛ اطلاعاتی ارسال نشده است.</p>
+            @if($showConsultationDemoNote)<p>نمایش کامل شد؛ اطلاعاتی ارسال نشده است.</p>@endif
         </div>
     </div>
 </dialog>

@@ -194,6 +194,7 @@ ready(() => {
     const consultationComplete = consultationModal?.querySelector('[data-consultation-complete]');
     const consultationSubmit = consultationForm?.querySelector('[type="submit"]');
     const consultationLabel = consultationForm?.querySelector('[data-submit-label]');
+    const consultationDefaultLabel = consultationLabel?.textContent ?? '';
     const consultationPhone = consultationForm?.querySelector('[name="phone"]');
     let consultationTrigger = null;
     const validatePhone = () => {
@@ -263,7 +264,7 @@ ready(() => {
         consultationForm.inert = false;
         consultationForm.reset();
         consultationSubmit.disabled = false;
-        consultationLabel.textContent = 'نمایش ارسال درخواست';
+        consultationLabel.textContent = consultationDefaultLabel;
         consultationComplete.hidden = true;
         consultationPhone?.setCustomValidity('');
         consultationTrigger?.focus({ preventScroll: true });
