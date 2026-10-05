@@ -1,6 +1,6 @@
-@props(['kind' => 'finance', 'title' => 'نمای محصول'])
-<div class="product-preview" role="img" aria-label="{{ $title }}؛ قاب نمایشی با داده‌های نمونه">
-<div class="preview-bar"><span class="preview-brand"><x-icon name="building" size="18" />بیلدینو</span><span class="sample-badge">داده‌ی نمونه</span></div>
+@props(['kind' => 'finance', 'title' => 'نمای محصول', 'showSample' => true])
+<div class="product-preview" role="img" aria-label="{{ $title }}{{ $showSample ? '؛ قاب نمایشی با داده‌های نمونه' : '' }}">
+<div class="preview-bar"><span class="preview-brand"><x-icon name="building" size="18" />بیلدینو</span>@if($showSample)<span class="sample-badge">داده‌ی نمونه</span>@endif</div>
 <div class="preview-body">
 @switch($kind)
 @case('finance')
